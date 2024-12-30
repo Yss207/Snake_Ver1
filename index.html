@@ -5,23 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNAKE</title>
     <style>
-        body{
+        body {
             margin: 0px;
             padding: 0px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+            background-image: url(gam.jpg);
+            background-repeat: repeat;
+            background-size: 15%;
+            background-position: 0 0;
         }
-        canvas{
+
+        canvas {
             box-shadow: black 20px 10px 50px;
         }
+
+        h1 {
+            font-family: "Comic Sans MS", sans-serif;
+            font-size: 30px;
+            color: #FFEB3B; /* Bright yellow color */
+            text-transform: uppercase;
+            letter-spacing: 4px; /* Slight letter spacing for elegance */
+            text-align: center;
+            
+            margin-top: 5px;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7); /* Dark background for text clarity */
+            box-shadow: 
+                0 4px 10px rgba(0, 0, 0, 0.6), /* Subtle shadow for depth */
+                0 0 20px rgba(255, 255, 255, 0.6); /* Soft glowing effect */
+            border: 2px solid #FFEB3B; /* Yellow border */
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
     <h1>The Snake Game</h1>
-
     <canvas id="game" width="400" height="400"></canvas>
-    <script src="index.js"></script>
+    <script src="snake_final.js"></script>
 </body>
 </html>
