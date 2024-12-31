@@ -25,6 +25,11 @@ let appleY = 5;
 let velocityX = 0;
 let velocityY = 0;
 
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
 const eatSound = new Audio("music/food.mp3");
 const moveSound = new Audio("music/move.mp3");
 const gameOverSound = new Audio("music/gameover.mp3");
@@ -237,6 +242,18 @@ function drawScore() {
 
 document.body.addEventListener("keydown", changeDirection);
 
+document.body.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+});
+
+// Detect touch end
+document.body.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    touchEndY = e.changedTouches[0].clientY;
+    handleSwipe(); // Determine swipe direction
+});
+
 function changeDirection(e) {
 
   moveSound.play();
@@ -253,6 +270,34 @@ function changeDirection(e) {
   } else if (e.code === "ArrowRight" && velocityX !== -1) {
     velocityX = 1;
     velocityY = 0;
+  }
+}
+
+function handleSwipe() {
+  const deltaX = touchEndX - touchStartX;
+  const deltaY = touchEndY - touchStartY;
+
+  // Determine swipe direction
+  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    if (deltaX > 0 && velocityX !== -1) {
+      // Swipe right
+      velocityX = 1;
+      velocityY = 0;
+    } else if (deltaX < 0 && velocityX !== 1) {
+      // Swipe left
+      velocityX = -1;
+      velocityY = 0;
+    }
+  } else {
+    if (deltaY > 0 && velocityY !== -1) {
+      // Swipe down
+      velocityX = 0;
+      velocityY = 1;
+    } else if (deltaY < 0 && velocityY !== 1) {
+      // Swipe up
+      velocityX = 0;
+      velocityY = -1;
+    }
   }
 }
 
