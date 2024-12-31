@@ -242,16 +242,26 @@ function drawScore() {
 
 document.body.addEventListener("keydown", changeDirection);
 
+// Prevent default behavior for touch events (e.g., scroll, refresh)
 document.body.addEventListener("touchstart", (e) => {
+  e.preventDefault();
   touchStartX = e.touches[0].clientX;
   touchStartY = e.touches[0].clientY;
-});
+}, { passive: false });
 
-// Detect touch end
+document.body.addEventListener(
+  "touchmove",
+  (e) => {
+    e.preventDefault(); // Prevent default scrolling during swipe
+  },
+  { passive: false }
+);
+
 document.body.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].clientX;
-    touchEndY = e.changedTouches[0].clientY;
-    handleSwipe(); // Determine swipe direction
+  e.preventDefault();
+  touchEndX = e.changedTouches[0].clientX;
+  touchEndY = e.changedTouches[0].clientY;
+  handleSwipe(); // Determine swipe direction
 });
 
 function changeDirection(e) {
