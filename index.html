@@ -12,6 +12,14 @@
 
     <title>Serpentine</title>
     <style>
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
       body {
         margin: 0px;
         padding: 0px;
@@ -25,6 +33,8 @@
         background-repeat: repeat;
         background-size: 11%;
         background-position: 0 0;
+
+        animation: fadeIn 1s ease-in-out;
       }
 
       canvas {
