@@ -1,53 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Serpentine</title>
     <style>
-        body {
-            margin: 0px;
-            padding: 0px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+      body {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-            background-image: url(final_img.jpg);
-            background-repeat: repeat;
-            background-size: 11%;
-            background-position: 0 0;
+        background-image: url(final_img.jpg);
+        background-repeat: repeat;
+        background-size: 11%;
+        background-position: 0 0;
+      }
+
+      canvas {
+        box-shadow: black 20px 10px 50px;
+      }
+
+      h1 {
+        font-family: "Comic Sans MS", sans-serif;
+        font-size: 30px;
+        color: #ffeb3b; /* Bright yellow color */
+        text-transform: uppercase;
+        letter-spacing: 4px; /* Slight letter spacing for elegance */
+        text-align: center;
+
+        margin-top: 5px;
+        margin-bottom: 15px;
+        padding: 20px;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.7); /* Dark background for text clarity */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6),
+          /* Subtle shadow for depth */ 0 0 20px rgba(255, 255, 255, 0.6); /* Soft glowing effect */
+        border: 2px solid #ffeb3b; /* Yellow border */
+        font-weight: bold;
+      }
+
+      /* Media Query for Mobile Devices */
+      @media (max-width: 768px) {
+        body {
+          background-size: 20%;
         }
 
         canvas {
-            box-shadow: black 20px 10px 50px;
+          width: 90%; /* Adjust canvas size for smaller screens */
+          height: auto; /* Maintain aspect ratio */
+          box-shadow: black 10px 5px 30px;
         }
 
         h1 {
-            font-family: "Comic Sans MS", sans-serif;
-            font-size: 30px;
-            color: #FFEB3B; /* Bright yellow color */
-            text-transform: uppercase;
-            letter-spacing: 4px; /* Slight letter spacing for elegance */
-            text-align: center;
-            
-            margin-top: 5px;
-            margin-bottom: 15px;
-            padding: 20px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.7); /* Dark background for text clarity */
-            box-shadow: 
-                0 4px 10px rgba(0, 0, 0, 0.6), /* Subtle shadow for depth */
-                0 0 20px rgba(255, 255, 255, 0.6); /* Soft glowing effect */
-            border: 2px solid #FFEB3B; /* Yellow border */
-            font-weight: bold;
+          font-size: 20px;
+          padding: 10px;
+          margin: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          background-size: 25%; /* Larger pattern size for smaller screens */
         }
 
+        h1 {
+          font-size: 16px;
+          padding: 8px;
+          margin: 8px;
+        }
+
+        canvas {
+          width: 100%; /* Full width for extra small devices */
+          height: auto;
+          margin: 10px;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>The Snake Game</h1>
     <canvas id="game" width="400" height="400"></canvas>
     <script src="snake_final.js"></script>
-</body>
+  </body>
 </html>
