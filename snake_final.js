@@ -64,10 +64,10 @@ function drawGame() {
     drawStartMessage();
   }
 
-  if (score > 5) {
+  if (score > 10) {
     speed = 11;
   }
-  if (score > 10) {
+  if (score > 25) {
     speed = 15;
   }
 
