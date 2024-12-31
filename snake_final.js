@@ -73,10 +73,10 @@ function drawGame() {
 function drawStartMessage() {
 //   clearScreen(); // Clear the screen to make the message stand out
   ctx.fillStyle = "white";
-  ctx.font = "20px Comic Sans MS";
+  ctx.font = "17px Comic Sans MS";
   ctx.textAlign = "center";
   ctx.fillText(
-    "Press any arrow key to start the game",
+    "Swipe or Press any arrow key to start the game",
     canvas.width / 2,
     canvas.height - 20
   );
@@ -108,7 +108,7 @@ function gameOver() {
     ctx.font = "50px Comic Sans MS";
     ctx.fillText("Game Over!", canvas.width / 2, canvas.height / 2);
     ctx.font = "20px Comic Sans MS";
-    ctx.fillText("Press F5 to Play Again!", canvas.width / 2, canvas.height / 2+40);
+    ctx.fillText("Refresh or Press F5 to Play Again", canvas.width / 2, canvas.height / 2+40);
   }
 
   return gameO;
