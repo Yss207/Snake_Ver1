@@ -21,22 +21,28 @@
         }
       }
       body {
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        position: relative; /* Make sure content stays on top of the image */
 
         background-image: url(final_img.jpg);
         background-repeat: repeat;
         background-size: 11%;
         background-position: 0 0;
 
+        /* This makes the entire body fade in */
         animation: fadeIn 1s ease-in-out;
+        opacity: 0; /* Initially hidden */
       }
 
+      body.loaded {
+        opacity: 1; /* Make the body visible after background is loaded */
+      }
       canvas {
         box-shadow: black 20px 10px 50px;
       }

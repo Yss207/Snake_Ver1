@@ -1,3 +1,7 @@
+window.onload = function () {
+  document.body.classList.add("loaded"); // Add the 'loaded' class when the window is fully loaded
+};
+
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
@@ -35,11 +39,11 @@ const moveSound = new Audio("music/move.mp3");
 const gameOverSound = new Audio("music/gameover.mp3");
 
 function drawGame() {
-//   if (velocityX === 0 && velocityY === 0) {
-//     drawStartMessage(); // Display the start message
-//     requestAnimationFrame(drawGame); // Continue checking for arrow key press
-//     return;
-//   }
+  //   if (velocityX === 0 && velocityY === 0) {
+  //     drawStartMessage(); // Display the start message
+  //     requestAnimationFrame(drawGame); // Continue checking for arrow key press
+  //     return;
+  //   }
 
   changeSnakePosition();
 
@@ -71,7 +75,7 @@ function drawGame() {
 }
 
 function drawStartMessage() {
-//   clearScreen(); // Clear the screen to make the message stand out
+  //   clearScreen(); // Clear the screen to make the message stand out
   ctx.fillStyle = "white";
   ctx.font = "17px Comic Sans MS";
   ctx.textAlign = "center";
@@ -108,7 +112,11 @@ function gameOver() {
     ctx.font = "50px Comic Sans MS";
     ctx.fillText("Game Over!", canvas.width / 2, canvas.height / 2);
     ctx.font = "20px Comic Sans MS";
-    ctx.fillText("Refresh or Press F5 to Play Again", canvas.width / 2, canvas.height / 2+40);
+    ctx.fillText(
+      "Refresh or Press F5 to Play Again",
+      canvas.width / 2,
+      canvas.height / 2 + 40
+    );
   }
 
   return gameO;
@@ -243,11 +251,15 @@ function drawScore() {
 document.body.addEventListener("keydown", changeDirection);
 
 // Prevent default behavior for touch events (e.g., scroll, refresh)
-document.body.addEventListener("touchstart", (e) => {
-  e.preventDefault();
-  touchStartX = e.touches[0].clientX;
-  touchStartY = e.touches[0].clientY;
-}, { passive: false });
+document.body.addEventListener(
+  "touchstart",
+  (e) => {
+    e.preventDefault();
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  },
+  { passive: false }
+);
 
 document.body.addEventListener(
   "touchmove",
@@ -265,7 +277,6 @@ document.body.addEventListener("touchend", (e) => {
 });
 
 function changeDirection(e) {
-
   moveSound.play();
 
   if (e.code === "ArrowUp" && velocityY !== 1) {
