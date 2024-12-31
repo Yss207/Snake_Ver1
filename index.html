@@ -12,6 +12,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 100vh;
 
         background-image: url(final_img.jpg);
         background-repeat: repeat;
@@ -46,12 +47,14 @@
       @media (max-width: 768px) {
         body {
           background-size: 20%;
+          flex-direction: column;
         }
 
         canvas {
           width: 90%; /* Adjust canvas size for smaller screens */
           height: auto; /* Maintain aspect ratio */
           box-shadow: black 10px 5px 30px;
+          margin: 0 auto;
         }
 
         h1 {
@@ -63,19 +66,19 @@
 
       @media (max-width: 480px) {
         body {
-          background-size: 25%; /* Larger pattern size for smaller screens */
+          background-size: 28%; /* Larger pattern size for smaller screens */
         }
 
         h1 {
-          font-size: 16px;
+          font-size: 25px;
           padding: 8px;
-          margin: 8px;
+          margin: 10px;
         }
 
         canvas {
-          width: 100%; /* Full width for extra small devices */
+          width: 95%; /* Full width for extra small devices */
           height: auto;
-          margin: 10px;
+          margin: auto 0;
         }
       }
     </style>
